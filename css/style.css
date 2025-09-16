@@ -1,0 +1,97 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8fafc;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: linear-gradient(90deg, #00f5ff 0%, #00ff88 100%);
+  color: #fff;
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+}
+header h1 { margin-bottom: 0.5rem; }
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.11);
+  padding: 2rem;
+}
+section {
+  margin-bottom: 2rem;
+}
+h2 { color: #00bfae; }
+#predictions-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+#predictions-table th, #predictions-table td {
+  border: 1px solid #e0e0e0;
+  padding: 0.75rem;
+  text-align: center;
+}
+#predictions-table th {
+  background: #e7fffd;
+  color: #008477;
+}
+#profit-calc, #alerts { 
+  background: #f1f8fb;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+form label { display: block; margin-bottom: 0.5rem; }
+input[type="text"], input[type="number"] {
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid #bfcfd7;
+  margin-bottom: 0.5rem;
+}
+button {
+  background: #00f5ff;
+  border: none;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+button:hover {
+  background: #007f7a;
+}
+#export-btn {
+  margin-top: 1rem;
+}
+#export-status {
+  margin-left: 1rem;
+  color: #008477;
+}
+#calc-result {
+  margin-top: 0.5rem;
+  color: #007f7a;
+  font-weight: bold;
+}
+#alerts-list {
+  margin-top: 0.5rem;
+  list-style: none;
+  padding-left: 0;
+}
+#alerts-list li {
+  background: #e7fffd;
+  margin-bottom: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.3rem;
+}
+footer {
+  text-align: center;
+  color: #fff;
+  background: #00bfae;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  border-radius: 1rem 1rem 0 0;
+}
