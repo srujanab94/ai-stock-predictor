@@ -1,0 +1,39 @@
+{
+  "name": "ai-stock-predictor",
+  "version": "2.1.0",
+  "description": "Advanced AI-powered stock analysis with real-time predictions and investment recommendations",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "build": "echo 'No build process required - static files'",
+    "test": "echo 'Tests not implemented yet'",
+    "deploy": "gh-pages -d ."
+  },
+  "keywords": [
+    "ai",
+    "stocks",
+    "predictions",
+    "machine-learning",
+    "trading",
+    "investment",
+    "finance",
+    "real-time"
+  ],
+  "author": "Srujana B <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srujanab94/ai-stock-predictor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/srujanab94/ai-stock-predictor/issues"
+  },
+  "homepage": "https://srujanab94.github.io/ai-stock-predictor/",
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
