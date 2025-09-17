@@ -1,97 +1,422 @@
+/* Enhanced Styles for AI Stock Predictor */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f8fafc;
-  color: #222;
-  margin: 0;
-  padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segura UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
 }
-header {
-  background: linear-gradient(90deg, #00f5ff 0%, #00ff88 100%);
-  color: #fff;
-  padding: 2rem 1rem 1rem 1rem;
-  text-align: center;
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
 }
-header h1 { margin-bottom: 0.5rem; }
-main {
-  max-width: 900px;
-  margin: 2rem auto;
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.11);
-  padding: 2rem;
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px;
+    background: rgba(22, 33, 62, 0.9);
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(0, 245, 255, 0.3);
 }
-section {
-  margin-bottom: 2rem;
+
+.header h1 {
+    font-size: 3rem;
+    background: linear-gradient(45deg, #00f5ff, #ffffff, #00ff88);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    font-weight: 900;
 }
-h2 { color: #00bfae; }
-#predictions-table table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1rem;
+
+.ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(45deg, #00f5ff, #00ff88);
+    color: black;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 700;
 }
-#predictions-table th, #predictions-table td {
-  border: 1px solid #e0e0e0;
-  padding: 0.75rem;
-  text-align: center;
+
+.ai-icon {
+    width: 20px;
+    height: 20px;
 }
-#predictions-table th {
-  background: #e7fffd;
-  color: #008477;
+
+/* Live Updates */
+.live-updates {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    z-index: 1000;
+    border: 1px solid rgba(0, 245, 255, 0.3);
 }
-#profit-calc, #alerts { 
-  background: #f1f8fb;
-  padding: 1rem;
-  border-radius: 0.5rem;
+
+.update-dot {
+    width: 8px;
+    height: 8px;
+    background: #00ff88;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    animation: pulse 2s infinite;
 }
-form label { display: block; margin-bottom: 0.5rem; }
-input[type="text"], input[type="number"] {
-  padding: 0.5rem;
-  margin-left: 0.5rem;
-  border-radius: 0.3rem;
-  border: 1px solid #bfcfd7;
-  margin-bottom: 0.5rem;
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
-button {
-  background: #00f5ff;
-  border: none;
-  color: #fff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 0.5rem;
+
+/* Main Layout */
+.top-picks {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
 }
-button:hover {
-  background: #007f7a;
+
+.main-recommendation {
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(0, 255, 136, 0.1));
+    border: 2px solid #00ff88;
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
 }
-#export-btn {
-  margin-top: 1rem;
+
+.main-recommendation::before {
+    content: '🎯 AI BEST PICK';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: #00ff88;
+    color: black;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
 }
-#export-status {
-  margin-left: 1rem;
-  color: #008477;
+
+.stock-title {
+    font-size: 2.5rem;
+    color: #00ff88;
+    margin-bottom: 10px;
+    font-weight: 900;
 }
-#calc-result {
-  margin-top: 0.5rem;
-  color: #007f7a;
-  font-weight: bold;
+
+.company-subtitle {
+    color: #ccc;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
 }
-#alerts-list {
-  margin-top: 0.5rem;
-  list-style: none;
-  padding-left: 0;
+
+/* Prediction Grid */
+.prediction-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
 }
-#alerts-list li {
-  background: #e7fffd;
-  margin-bottom: 0.4rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 0.3rem;
+
+.prediction-card {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
-footer {
-  text-align: center;
-  color: #fff;
-  background: #00bfae;
-  padding: 1rem 0;
-  margin-top: 2rem;
-  border-radius: 1rem 1rem 0 0;
+
+.prediction-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 245, 255, 0.2);
+}
+
+.prediction-label {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.prediction-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00ff88;
+}
+
+.profit-potential {
+    font-size: 1.8rem;
+    color: #00ff88;
+    font-weight: 800;
+}
+
+/* AI Confidence */
+.ai-confidence {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.confidence-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.confidence-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b, #ffa502, #00ff88);
+    border-radius: 4px;
+    transition: width 2s ease-out;
+}
+
+/* AI Analysis */
+.ai-analysis {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 4px solid #00f5ff;
+}
+
+.ai-analysis h3 {
+    color: #00f5ff;
+    margin-bottom: 15px;
+}
+
+.reason-item {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.reason-item::before {
+    content: '🧠';
+    position: absolute;
+    left: 0;
+}
+
+/* Investment Calculation */
+.investment-calc {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 255, 136, 0.1);
+    border-radius: 10px;
+}
+
+/* Quick Picks */
+.quick-picks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.quick-pick {
+    background: rgba(15, 52, 96, 0.8);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.quick-pick:hover {
+    transform: translateY(-5px);
+    border-color: #00f5ff;
+    box-shadow: 0 10px 30px rgba(0, 245, 255, 0.2);
+}
+
+/* Market Analysis */
+.market-analysis {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.market-analysis h2 {
+    color: #00f5ff;
+    margin-bottom: 20px;
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.analysis-metric {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.analysis-metric:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00f5ff;
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.action-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #00f5ff, #00ff88);
+    color: black;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 245, 255, 0.3);
+}
+
+/* Profit Calculator */
+.profit-calculator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #00f5ff;
+    z-index: 1000;
+    max-width: 300px;
+    backdrop-filter: blur(10px);
+}
+
+.profit-calculator h4 {
+    color: #00f5ff;
+    margin-bottom: 15px;
+}
+
+.profit-calculator input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.profit-calculator input::placeholder {
+    color: #aaa;
+}
+
+.profit-calculator button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(45deg, #00f5ff, #00ff88);
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profit-calculator button:hover {
+    transform: scale(1.02);
+}
+
+#profitResults {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #00ff88;
+}
+
+/* Disclaimer */
+.disclaimer {
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 30px;
+    text-align: center;
+    color: #ff6b6b;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .top-picks {
+        grid-template-columns: 1fr;
+    }
+    
+    .analysis-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .prediction-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .analysis-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profit-calculator {
+        position: relative;
+        margin: 20px auto;
+        max-width: 400px;
+    }
 }
