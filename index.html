@@ -1,60 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>AI Stock Predictor</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header>
-    <h1>🤖 AI Stock Predictor</h1>
-    <p>Advanced Machine Learning Stock Analysis &amp; Real-Time Predictions</p>
-  </header>
-  <main>
-    <section id="dashboard">
-      <h2>Live AI Predictions</h2>
-      <div id="predictions-table"></div>
-    </section>
-    <section id="profit-calc">
-      <h2>Profit Calculator</h2>
-      <form id="calc-form">
-        <label>
-          Stock Symbol:
-          <input type="text" id="calc-symbol" placeholder="e.g. NVDA" required>
-        </label>
-        <label>
-          Amount Invested ($):
-          <input type="number" id="calc-amount" min="1" required>
-        </label>
-        <label>
-          Target Price ($):
-          <input type="number" id="calc-target" min="0" step="0.01" required>
-        </label>
-        <button type="submit">Calculate</button>
-      </form>
-      <div id="calc-result"></div>
-    </section>
-    <section id="export">
-      <button id="export-btn">Export Recommendations</button>
-      <span id="export-status"></span>
-    </section>
-    <section id="alerts">
-      <h2>Set Price Alerts</h2>
-      <form id="alert-form">
-        <input type="text" id="alert-symbol" placeholder="Symbol" required>
-        <input type="number" id="alert-price" placeholder="Target Price" required>
-        <button type="submit">Add Alert</button>
-      </form>
-      <ul id="alerts-list"></ul>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 AI Stock Predictor. Not financial advice.</p>
-  </footer>
-  <script src="js/config.js"></script>
-  <script src="js/api-handlers.js"></script>
-  <script src="js/ai-engine.js"></script>
-  <script src="js/main.js"></script>
+<!-- Add these script tags before closing </body> -->
+    <script src="js/config.js"></script>
+    <script src="js/ai-engine.js"></script>
+    <script src="js/live-data.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
