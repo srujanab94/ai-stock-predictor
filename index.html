@@ -1,7 +1,116 @@
-<!-- Add these script tags before closing </body> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Stock Predictor - Live Market Data</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="live-updates" id="liveUpdates">
+        <span class="update-dot"></span>
+        Initializing...
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>🤖 AI Stock Predictor</h1>
+                <p>Advanced Machine Learning Recommendations with Profit Projections</p>
+                <div class="ai-badge">
+                    <svg class="ai-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span id="accuracyBadge">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="top-picks">
+            <div class="main-recommendation">
+                <div class="stock-title" id="mainStockSymbol">NVDA</div>
+                <div class="company-subtitle" id="mainStockName">NVIDIA Corporation</div>
+                
+                <div class="prediction-grid">
+                    <div class="prediction-card">
+                        <div class="prediction-label">Current Price</div>
+                        <div class="prediction-value" id="currentPrice">Loading...</div>
+                    </div>
+                    <div class="prediction-card">
+                        <div class="prediction-label">AI Target (30d)</div>
+                        <div class="prediction-value" id="targetPrice">Loading...</div>
+                    </div>
+                    <div class="prediction-card">
+                        <div class="prediction-label">Profit Potential</div>
+                        <div class="profit-potential" id="profitPotential">Loading...</div>
+                    </div>
+                </div>
+
+                <div class="ai-confidence">
+                    <span>AI Confidence:</span>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" id="confidenceFill" style="width: 0%;"></div>
+                    </div>
+                    <span id="confidenceText">0%</span>
+                </div>
+
+                <div class="ai-analysis">
+                    <h3>🧠 AI Analysis & Investment Thesis</h3>
+                    <div id="analysisReasons">
+                        <div class="reason-item">Loading market analysis...</div>
+                    </div>
+                </div>
+
+                <div id="investmentCalculation" class="investment-calc">
+                    Loading investment calculation...
+                </div>
+            </div>
+
+            <div class="quick-picks" id="quickPicks">
+                <!-- Quick picks will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div class="time-horizons" id="timeHorizons">
+            <!-- Time horizon cards will be populated by JavaScript -->
+        </div>
+
+        <div class="market-analysis">
+            <h2>📊 AI Market Analysis Dashboard</h2>
+            <div class="analysis-grid" id="analysisGrid">
+                <!-- Analysis metrics will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="action-btn btn-primary" onclick="AIStockPredictor.showDetailedAnalysis()">
+                📊 Get Detailed AI Report
+            </button>
+            <button class="action-btn btn-secondary" onclick="AIStockPredictor.exportRecommendations()">
+                💾 Export Recommendations
+            </button>
+            <button class="action-btn btn-secondary" onclick="AIStockPredictor.setAlerts()">
+                🔔 Set Price Alerts
+            </button>
+        </div>
+
+        <div class="disclaimer">
+            <strong>⚠️ Investment Disclaimer</strong><br>
+            This application provides AI-generated analysis for educational purposes only. Not financial advice. 
+            All investments carry risk of loss. Consult with a qualified financial advisor before making investment decisions.
+        </div>
+    </div>
+
+    <!-- Profit Calculator Widget -->
+    <div id="profitCalculator" class="profit-calculator">
+        <h4>💰 Profit Calculator</h4>
+        <input type="number" id="investmentAmount" placeholder="Investment ($)">
+        <button onclick="AIStockPredictor.calculateProfits()">Calculate Returns</button>
+        <div id="profitResults"></div>
+    </div>
+
     <script src="js/config.js"></script>
     <script src="js/ai-engine.js"></script>
-    <script src="js/live-data.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
